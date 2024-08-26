@@ -1,5 +1,4 @@
 <?php
-
 if (!defined("RFID_STATUS_FILE")) {
     define("RFID_STATUS_FILE", "rfid_status");
 }
@@ -132,7 +131,6 @@ function getEmpleadoPorRFID($rfidSerial)
     $query = "SELECT e.IdUsuario, e.Nombre FROM usuarios e INNER JOIN rfid
     ON rfid.IdUsuario = e.IdUsuario
     WHERE rfid.RFID = ?";
-
     $db = getDB();
     $statement = $db->prepare($query);
     $statement->execute([$rfidSerial]);
@@ -154,7 +152,6 @@ function GuardarAsistenciaDeUsuario($IdUsuario)
     $db = getDB();
     $statement = $db->prepare($query);
     return $statement->execute([ $date, $horaEntrada, $IdUsuario ]);
-
 }
 
 function existeRegistroDeEntrada($IdUsuario)
@@ -178,5 +175,3 @@ function GuardarSalidaDeUsuario($IdUsuario)
     $statement = $db->prepare($query);
     return $statement->execute([$horaSalida, $IdUsuario, $date]);
 }
-
-
