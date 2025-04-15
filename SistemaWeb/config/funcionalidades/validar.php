@@ -15,7 +15,7 @@ $stmt->bindParam(':correo', $correo);
 $stmt->bindParam(':pass', $pass);
 $stmt->execute();
 
-//Validamos qie el inicio fue exitoso
+//Validamos que el inicio fue exitoso
 if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     if ($row['Rol'] == "Administrador") {
         // Inicio de sesión exitoso
